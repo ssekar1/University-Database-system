@@ -1,0 +1,16 @@
+workflow:
+
+the user will need the following to insert into course:
+	course_id, course_name, credit_hours, instructor_id, isbn
+
+	before performing an insert into course, will have to create a textbook for the course:
+		isbn, title, author, cost
+	and an instructor for the course:
+		instructor_id, instructor_name, salary
+
+	before doing the insert for course:
+	1) turn off autocommit
+	2) do the insert
+	3) run check_has() and check_teaches()
+	4) if either one returns 0, rollback. else commit
+	5) turn on autocommit again

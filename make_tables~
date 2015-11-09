@@ -32,4 +32,3 @@ create table has(
 	foreign key(isbn) references textbook(isbn),
 	primary key(course_id, isbn)
 	);
-

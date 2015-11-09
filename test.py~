@@ -55,7 +55,6 @@ def update(table, column, value, zk):
 	pk = get_pk(table)
 	cur.execute("update " + table + " set " + column + "=" + value1 + " where " + str(pk[0]) + "=" + str(zk) + ";")
 
-'''
 insert([1, 'a', 1], "course")
 cur.execute("select * from course;")
 print(cur.fetchall())
@@ -65,7 +64,7 @@ print(cur.fetchall())
 delete([1], "course")
 cur.execute("select * from course;")
 print(cur.fetchall())
-'''
+
 #cur.execute("select * from course;")
 #print(cur.fetchall())
 #cur.execute('select * from course;')
