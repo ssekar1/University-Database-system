@@ -30,6 +30,3 @@ def delete(values, table):
 #assumes all parameters are not lists
 def update(table, column, value, zk):
 
-#takes a table and a csv file. puts data in
-def bulk_load(table, csv_file):
-

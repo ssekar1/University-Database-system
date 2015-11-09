@@ -1,6 +1,6 @@
 #!/usr/bin/python3.4
 
-import bottle, sqlite3
+import sqlite3, csv
 
 conn = sqlite3.connect('project.db')
 cur = conn.cursor()
@@ -55,6 +55,17 @@ def update(table, column, value, zk):
 	pk = get_pk(table)
 	cur.execute("update " + table + " set " + column + "=" + value1 + " where " + str(pk[0]) + "=" + str(zk) + ";")
 
+#takes a table and a csv file. puts data in
+def bulk_load(table, csv_file):
+	with open(csv_file, "r") as x:
+		reader = csv.reader(x, delimiter=',')
+		[insert(y, table) for y in reader]
+
+bulk_load("textbook", "book.csv")
+cur.execute("select * from textbook;")
+print(cur.fetchall())
+
+'''
 insert([1, 'a', 1], "course")
 cur.execute("select * from course;")
 print(cur.fetchall())
@@ -64,7 +75,7 @@ print(cur.fetchall())
 delete([1], "course")
 cur.execute("select * from course;")
 print(cur.fetchall())
-
+'''
 #cur.execute("select * from course;")
 #print(cur.fetchall())
 #cur.execute('select * from course;')
