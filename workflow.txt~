@@ -14,5 +14,3 @@ the user will need the following to insert into course:
 	3) run check_has() and check_teaches()
 	4) if either one returns 0, rollback. else commit
 	5) turn on autocommit again
-
-css is bootstrap darkly. here's a link to the page that has examples: https://bootswatch.com/darkly/

@@ -6,7 +6,7 @@ sqlite3 project.db < drop_tables > drop_script makes drop_script
 for loading csv files, separate the items by commas. do not use spaces between comma separated items
 no newline at end of csv file
 
-functions in test.py:
+functions in app_lib.py:
 
 #returns list of primary keys for table
 def get_pk(table):
