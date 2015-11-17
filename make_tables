@@ -1,7 +1,9 @@
 create table course (
 	course_id integer PRIMARY KEY,
 	course_name text not null,
-	credit_hours real not null
+	credit_hours real not null,
+	primary_book integer not null,
+	foreign key(primary_book) references textbook(isbn)
 	);
 
 create table instructor (
@@ -25,7 +27,7 @@ create table teaches (
 	primary key(course_id, instructor_id)
 	); 
 
-create table has(
+create table additional(
 	course_id integer,
 	isbn integer,
 	foreign key(course_id) references course(course_id),

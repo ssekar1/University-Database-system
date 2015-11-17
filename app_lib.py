@@ -58,8 +58,12 @@ def update(table, column, value, zk):
 #takes a table and a csv file. puts data in
 def bulk_load(table, csv_file):
 	with open(csv_file, "r") as x:
+		x.readline() #removes the first item in x
 		reader = csv.reader(x, delimiter=',')
 		[insert(y, table) for y in reader]
+
+def close():
+	conn.close()
 
 '''
 bulk_load("textbook", "book.csv")
@@ -83,5 +87,5 @@ print(cur.fetchall())
 
 #print(check_teaches(),"\n",check_has())
 
-conn.close()
+#conn.close()
 

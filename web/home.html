@@ -1,4 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+	body {
+		margin-left:20px;
+	};
+
+h4 {
+  margin-top: 25px;
+}
+.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+}
+
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+</style>
+
+	<head>
+		<meta charset="utf-8'">
+		<title>University Database Home Page </title>
+		<link rel="stylesheet" href="bootstrap.css">
+	</head>
+
+	<body>
+		<div class="contianer">
+			<div class="page-header">
+
+				<div class="row">
+					<div class="col-lg-8 col-md-7 col-sm-6">
+            			<center><h1>University Database</h1></center>
+         			 </div>
+				</div>
+
+					<ul><h3>Load CSV Files</h3></ul>
+					<ul> Can submit as little as 1 file. File Paths are relative to the the directory in which app.py is stored </ul>
+						<form action="http://localhost:8080/csv" method="post">
+							Instructors: <input type="text" name="instructor"> <br>
+							Courses: <input type="text" name="course"> <br>
+							Textbooks: <input type="text" name="textbook"> <br>
+							Additional Textbooks: <input type="text" name="additional"> <br>
+							Teaches: <input type="text" name="teaches"> <br>
+							<input type="submit">
+						</form>
+
+<br> <br>
+
+<ul><h3> Insert </h3></ul>
+<ul>Inserting a record requires that all the fields be filled out for that record</ul>
+<form action="http://localhost:8080/insert/instructor" method="post">
+Instructor: &nbsp; &nbsp; &nbsp; &nbsp; ID: <input type="text" name="i_id">
+	&nbsp; &nbsp; Name: <input type="text" name="i_n">
+	&nbsp; &nbsp; Salary: <input type="text" name="i_s">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<form action="http://localhost:8080/insert/textbook" method="post">
+Textbook: &nbsp; &nbsp; &nbsp; &nbsp; ISBN: <input type="text" name="t_id">
+	&nbsp; &nbsp; Author Name: <input type="text" name="t_n">
+	&nbsp; &nbsp; Cost: <input type="text" name="t_c">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<form action="http://localhost:8080/insert/course" method="post">
+Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; Name: <input type="text" name="c_n">
+	&nbsp; &nbsp; Credit Hours: <input type="text" name="c_h">
+	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<form action="http://localhost:8080/insert/teaches" method="post">
+Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
+	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; <input type="submit">
+<br>
+<form action="http://localhost:8080/insert/additional" method="post">
+Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
+	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+<ul><h3>Select</h3></ul>
+<ul> Syntax: select from table where attribute name = value. put * to select all values of an attribute</br>
+ Syntax is the same for Update and Delete as well </ul>
+<form action="http://localhost:8080/select/instructor" method="post">
+	Instructor: &nbsp; &nbsp; &nbsp; &nbsp; ID: <input type="text" name="i_id">
+	&nbsp; &nbsp; Name: <input type="text" name="i_n">
+	&nbsp; &nbsp; Salary: <input type="text" name="i_s">&nbsp; &nbsp;
+<input type="submit">
+</form>
+
+<form action="http://localhost:8080/select/Textbook" method="post">
+	Textbook: &nbsp; &nbsp; &nbsp; &nbsp; ISBN: <input type="text" name="t_id">
+	&nbsp; &nbsp; Author Name: <input type="text" name="t_n">
+	&nbsp; &nbsp; Cost: <input type="text" name="t_c">
+	&nbsp; &nbsp;
+<input type="submit">
+</form>
+
+<form action="http://localhost:8080/select/course" method="post">
+	Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; Name: <input type="text" name="c_n">
+	&nbsp; &nbsp; Credit Hours: <input type="text" name="c_h">
+	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p">&nbsp; &nbsp;
+<input type="submit">
+</form>
+
+<form action="http://localhost:8080/select/teaches" method="post">
+	Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
+	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; 
+<input type="submit">
+</form>
+
+<form action="http://localhost:8080/select/additional" method="post">
+	Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
+	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn">
+	&nbsp; &nbsp;
+<input type="submit">
+</form>
+
+<ul><h3> Update </h3></ul>
+<ul> Updates require the primary key</ul>
+<form action="http://localhost:8080/update/instructor" method="post">
+Instructor: &nbsp; &nbsp; &nbsp; &nbsp; ID: <input type="text" name="i_id">
+	&nbsp; &nbsp; Name: <input type="text" name="i_n">
+	&nbsp; &nbsp; Salary: <input type="text" name="i_s">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<form action="http://localhost:8080/update/textbook" method="post">
+Textbook: &nbsp; &nbsp; &nbsp; &nbsp; ISBN: <input type="text" name="t_id">
+	&nbsp; &nbsp; Author Name: <input type="text" name="t_n">
+	&nbsp; &nbsp; Cost: <input type="text" name="t_c">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<form action="http://localhost:8080/update/course" method="post">
+Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; Name: <input type="text" name="c_n">
+	&nbsp; &nbsp; Credit Hours: <input type="text" name="c_h">
+	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<form action="http://localhost:8080/update/teaches" method="post">
+Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
+	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; <input type="submit">
+<br>
+<form action="http://localhost:8080/update/additional" method="post">
+Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
+	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<ul><h3> Delete </h3></ul>
+<form action="http://localhost:8080/delete/instructor" method="post">
+Instructor: &nbsp; &nbsp; &nbsp; &nbsp; ID: <input type="text" name="i_id">
+	&nbsp; &nbsp; Name: <input type="text" name="i_n">
+	&nbsp; &nbsp; Salary: <input type="text" name="i_s">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<form action="http://localhost:8080/delete/textbook" method="post">
+Textbook: &nbsp; &nbsp; &nbsp; &nbsp; ISBN: <input type="text" name="t_id">
+	&nbsp; &nbsp; Author Name: <input type="text" name="t_n">
+	&nbsp; &nbsp; Cost: <input type="text" name="t_c">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<form action="http://localhost:8080/delete/course" method="post">
+Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; Name: <input type="text" name="c_n">
+	&nbsp; &nbsp; Credit Hours: <input type="text" name="c_h">
+	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+<form action="http://localhost:8080/delete/teaches" method="post">
+Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
+	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; <input type="submit">
+<br>
+<form action="http://localhost:8080/delete/additional" method="post">
+Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
+	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn">
+	&nbsp; &nbsp; <input type="submit">
+</form>
+
+
+			</div> <!--end page header -->
+		</div> <!-- end outermost container-->
+	</body>
 </html>
