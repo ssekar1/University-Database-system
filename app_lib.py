@@ -47,13 +47,8 @@ def delete(values, table):
 	[cur.execute("delete from " + table + " where " + str(pk[0]) + "=" + str(x) + ';') for x in values]
 
 #assumes all parameters are not lists
-def update(table, column, value, zk):
-	if type(value) is not str:
-		value1 = str(value)
-	else:
-		value1= "'" + value + "'";
-	pk = get_pk(table)
-	cur.execute("update " + table + " set " + column + "=" + value1 + " where " + str(pk[0]) + "=" + str(zk) + ";")
+def update(table, string, pk, pk_val):
+	cur.execute("update " + table + " set " + string + " where " + pk + " = " + pk_val + ";")
 
 #takes a table and a csv file. puts data in
 def bulk_load(table, csv_file):

@@ -141,39 +141,39 @@ Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" 
 
 <ul><h3> Update </h3></ul>
 <ul> Updates require the primary key</ul>
-<form action="http://localhost:8080/update/instructor" method="post">
+<form action="http://localhost:8080/update" method="post">
 Instructor: &nbsp; &nbsp; &nbsp; &nbsp; ID: <input type="text" name="i_id">
 	&nbsp; &nbsp; Name: <input type="text" name="i_n">
-	&nbsp; &nbsp; Salary: <input type="text" name="i_s">
+	&nbsp; &nbsp; Salary: <input type="text" name="i_s"> <input type="hidden" name="type" value="instructor">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
 
-<form action="http://localhost:8080/update/textbook" method="post">
+<form action="http://localhost:8080/update" method="post">
 Textbook: &nbsp; &nbsp; &nbsp; &nbsp; ISBN: <input type="text" name="t_id">
 	&nbsp; &nbsp; Author Name: <input type="text" name="t_n">
-	&nbsp; &nbsp; Cost: <input type="text" name="t_c">
+	&nbsp; &nbsp; Cost: <input type="text" name="t_c"> <input type="hidden" name="type" value="textbook">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
 
-<form action="http://localhost:8080/update/course" method="post">
+<form action="http://localhost:8080/update" method="post">
 Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
 	&nbsp; &nbsp; Name: <input type="text" name="c_n">
 	&nbsp; &nbsp; Credit Hours: <input type="text" name="c_h">
-	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p">
+	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p"> <input type="hidden" name="type" value="course">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
 
-<form action="http://localhost:8080/update/teaches" method="post">
-Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
-	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
+<form action="http://localhost:8080/update" method="post">
+Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="ti_id">
+	&nbsp; &nbsp; Course ID: <input type="text" name="tc_id"> <input type="hidden" name="type" value="teaches">
 	&nbsp; &nbsp; <input type="submit">
 <br>
-<form action="http://localhost:8080/update/additional" method="post">
+<form action="http://localhost:8080/update" method="post">
 Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
-	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn">
+	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn"> <input type="hidden" name="type" value="additional">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
@@ -189,6 +189,7 @@ Instructor: &nbsp; &nbsp; &nbsp; &nbsp; ID: <input type="text" name="i_id">
 
 <form action="http://localhost:8080/delete/textbook" method="post">
 Textbook: &nbsp; &nbsp; &nbsp; &nbsp; ISBN: <input type="text" name="t_id">
+	&nbsp; &nbsp; Title: <input type="text" name="t_t">
 	&nbsp; &nbsp; Author Name: <input type="text" name="t_n">
 	&nbsp; &nbsp; Cost: <input type="text" name="t_c">
 	&nbsp; &nbsp; <input type="submit">
