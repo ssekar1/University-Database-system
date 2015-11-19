@@ -17,7 +17,9 @@
 
 				</div>
 <ul> 
-	  {{ data }}	
+	  % for item in data[0]:
+		<li> {{ item }} </li>
+	  % end	
 	
 </ul>
 

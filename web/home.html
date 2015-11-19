@@ -63,79 +63,81 @@ hr {
 
 <ul><h3> Insert </h3></ul>
 <ul>Inserting a record requires that all the fields be filled out for that record</ul>
-<form action="http://localhost:8080/insert/instructor" method="post">
+<form action="http://localhost:8080/insert" method="post">
 Instructor: &nbsp; &nbsp; &nbsp; &nbsp; ID: <input type="text" name="i_id">
 	&nbsp; &nbsp; Name: <input type="text" name="i_n">
-	&nbsp; &nbsp; Salary: <input type="text" name="i_s">
+	&nbsp; &nbsp; Salary: <input type="text" name="i_s"><input type="hidden" name="type" value="instructor">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
 
-<form action="http://localhost:8080/insert/textbook" method="post">
+<form action="http://localhost:8080/insert" method="post">
 Textbook: &nbsp; &nbsp; &nbsp; &nbsp; ISBN: <input type="text" name="t_id">
+	&nbsp; &nbsp; Title: <input type="text" name="t_t">
 	&nbsp; &nbsp; Author Name: <input type="text" name="t_n">
-	&nbsp; &nbsp; Cost: <input type="text" name="t_c">
+	&nbsp; &nbsp; Cost: <input type="text" name="t_c"><input type="hidden" name="type" value="textbook">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
 
-<form action="http://localhost:8080/insert/course" method="post">
+<form action="http://localhost:8080/insert" method="post">
 Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
 	&nbsp; &nbsp; Name: <input type="text" name="c_n">
 	&nbsp; &nbsp; Credit Hours: <input type="text" name="c_h">
-	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p">
+	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p"><input type="hidden" name="type" value="course">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
 
-<form action="http://localhost:8080/insert/teaches" method="post">
+<form action="http://localhost:8080/insert" method="post">
 Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
-	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; Course ID: <input type="text" name="c_id"><input type="hidden" name="type" value="teaches">
 	&nbsp; &nbsp; <input type="submit">
 <br>
-<form action="http://localhost:8080/insert/additional" method="post">
+<form action="http://localhost:8080/insert" method="post">
 Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
-	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn">
+	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn"><input type="hidden" name="type" value="additional">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
 <ul><h3>Select</h3></ul>
 <ul> Syntax: select from table where attribute name = value. put * to select all values of an attribute</br>
  Syntax is the same for Update and Delete as well </ul>
-<form action="http://localhost:8080/select/instructor" method="post">
+<form action="http://localhost:8080/select" method="post">
 	Instructor: &nbsp; &nbsp; &nbsp; &nbsp; ID: <input type="text" name="i_id">
-	&nbsp; &nbsp; Name: <input type="text" name="i_n">
+	&nbsp; &nbsp; Name: <input type="text" name="i_n"> <input type="hidden" name="type" value="instructor">
 	&nbsp; &nbsp; Salary: <input type="text" name="i_s">&nbsp; &nbsp;
 <input type="submit">
 </form>
 
-<form action="http://localhost:8080/select/Textbook" method="post">
+<form action="http://localhost:8080/select" method="post">
 	Textbook: &nbsp; &nbsp; &nbsp; &nbsp; ISBN: <input type="text" name="t_id">
+	&nbsp; &nbsp; Title: <input type="text" name="t_t">
 	&nbsp; &nbsp; Author Name: <input type="text" name="t_n">
 	&nbsp; &nbsp; Cost: <input type="text" name="t_c">
-	&nbsp; &nbsp;
+	&nbsp; &nbsp;<input type="hidden" name="type" value="textbook">
 <input type="submit">
 </form>
 
-<form action="http://localhost:8080/select/course" method="post">
+<form action="http://localhost:8080/select" method="post">
 	Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
 	&nbsp; &nbsp; Name: <input type="text" name="c_n">
 	&nbsp; &nbsp; Credit Hours: <input type="text" name="c_h">
 	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p">&nbsp; &nbsp;
-<input type="submit">
+<input type="submit"><input type="hidden" name="type" value="course">
 </form>
 
-<form action="http://localhost:8080/select/teaches" method="post">
+<form action="http://localhost:8080/select" method="post">
 	Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
 	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
-	&nbsp; &nbsp; 
+	&nbsp; &nbsp; <input type="hidden" name="type" value="teaches">
 <input type="submit">
 </form>
 
-<form action="http://localhost:8080/select/additional" method="post">
+<form action="http://localhost:8080/select" method="post">
 	Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
 	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn">
-	&nbsp; &nbsp;
+	&nbsp; &nbsp;<input type="hidden" name="type" value="additional">
 <input type="submit">
 </form>
 
@@ -165,55 +167,36 @@ Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
-
-<form action="http://localhost:8080/update" method="post">
-Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="ti_id">
-	&nbsp; &nbsp; Course ID: <input type="text" name="tc_id"> <input type="hidden" name="type" value="teaches">
-	&nbsp; &nbsp; <input type="submit">
-<br>
-<form action="http://localhost:8080/update" method="post">
-Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
-	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn"> <input type="hidden" name="type" value="additional">
-	&nbsp; &nbsp; <input type="submit">
-</form>
-
-
 <ul><h3> Delete </h3></ul>
-<form action="http://localhost:8080/delete/instructor" method="post">
+<form action="http://localhost:8080/delete" method="post">
 Instructor: &nbsp; &nbsp; &nbsp; &nbsp; ID: <input type="text" name="i_id">
-	&nbsp; &nbsp; Name: <input type="text" name="i_n">
-	&nbsp; &nbsp; Salary: <input type="text" name="i_s">
+	<input type="hidden" name="type" value="instructor">
 	&nbsp; &nbsp; <input type="submit">
 </form>
 
 
-<form action="http://localhost:8080/delete/textbook" method="post">
+<form action="http://localhost:8080/delete" method="post">
 Textbook: &nbsp; &nbsp; &nbsp; &nbsp; ISBN: <input type="text" name="t_id">
-	&nbsp; &nbsp; Title: <input type="text" name="t_t">
-	&nbsp; &nbsp; Author Name: <input type="text" name="t_n">
-	&nbsp; &nbsp; Cost: <input type="text" name="t_c">
-	&nbsp; &nbsp; <input type="submit">
+	&nbsp; &nbsp;  <input type="submit"><input type="hidden" name="type" value="textbook">
 </form>
 
 
-<form action="http://localhost:8080/delete/course" method="post">
+<form action="http://localhost:8080/delete" method="post">
 Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
-	&nbsp; &nbsp; Name: <input type="text" name="c_n">
-	&nbsp; &nbsp; Credit Hours: <input type="text" name="c_h">
-	&nbsp; &nbsp; Primary Textbook: <input type="text" name="c_p">
-	&nbsp; &nbsp; <input type="submit">
+	&nbsp; &nbsp; <input type="hidden" name="type" value="course">
+	<input type="submit">
 </form>
 
 
-<form action="http://localhost:8080/delete/teaches" method="post">
+<form action="http://localhost:8080/delete" method="post">
 Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
 	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
-	&nbsp; &nbsp; <input type="submit">
+	&nbsp; &nbsp; <input type="submit"><input type="hidden" name="type" value="teaches">
 <br>
-<form action="http://localhost:8080/delete/additional" method="post">
+<form action="http://localhost:8080/delete" method="post">
 Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
 	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn">
-	&nbsp; &nbsp; <input type="submit">
+	&nbsp; &nbsp; <input type="submit"><input type="hidden" name="type" value="additional">
 </form>
 
 
