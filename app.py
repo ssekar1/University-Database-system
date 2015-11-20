@@ -36,6 +36,7 @@ def mass_upload():
 			continue
 		try:
 			app_lib.bulk_load(item, temp)
+			return_string = app_lib.test_constraint() # doesn't say which one failed
 		except Exception as e:
 			return_string = e
 			
@@ -65,6 +66,7 @@ def update():
 	return_string = 'success'
 	try:
 		app_lib.update(u_type, string , primary_keys[u_type], pk)
+		return_string = app_lib.test_constraint()
 	except Exception as e:
 		return_string = e
 	return template('./web/csv_result.html', data=[return_string])
@@ -79,15 +81,16 @@ def insert():
 	pk = str(temp)
 
 	for i in range(0, len(form_fields[u_type])):
-		if type(i) == str:
+		if check_type(i) == False:
 			temp.append("'" + str(request.forms.get(form_fields[u_type][i])) + "'")
 		else:
 			temp.append(request.forms.get(form_fields[u_type][i]))
 
-	return_string = 'success'
+	return_string = 'none'
 	
 	try:
 		app_lib.insert(temp, u_type)
+		return_string = app_lib.test_constraint()
 	except Exception as e:
 		return_string = e
 	return template('./web/csv_result.html', data=[return_string])
@@ -103,16 +106,17 @@ def delete():
 	temp = ''
 	for i in range(0, len(pk_var1[u_type])):
 		temp += primary_keys1[u_type][i] + ' = '
-		if type(i) == str:
+		if check_type(i) == False:
 			temp += "'" + request.forms.get(pk_var1[u_type][i]) + "', "
 		else:
 			temp += request.forms.get(pk_var1[u_type][i]) + ", "
 		
 	
 	temp = temp[:-2]
-	return_string = 'success'
+	return_string = 'none'
 	try:
 		app_lib.delete(temp, u_type)
+		return_string = app_lib.test_constraint()
 	except Exception as e:
 		return_string = e
 	return template('./web/csv_result.html', data=[return_string])

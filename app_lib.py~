@@ -59,7 +59,6 @@ def insert(values, table):
 #better verify that the values aren't sql injections
 def delete(string, table):
 	cur.execute("delete from " + table + " where " + string)
-	delete()
 
 #assumes all parameters are not lists
 def update(table, string, pk, pk_val):
