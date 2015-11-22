@@ -73,6 +73,7 @@ def update():
 
 @post('/insert')
 def insert():
+	
 	u_type = request.forms.get('type')
 	
 	temp = [request.forms.get(pk_var[u_type])]

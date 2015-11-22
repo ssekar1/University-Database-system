@@ -74,7 +74,10 @@ def bulk_load(table, csv_file):
 
 #selects tuples matching constraint, returns a list
 def select(string, table):
-	cur.execute("select * from  " + table + " where " + string + ";")
+	if("*" in string): # checks if * is in the sent string, could not get it to work for specific fields
+		cur.execute("select * from "+ table+ ";")
+	else:
+		cur.execute("select * from  " + table + " where " + string + ";")
 	foo = list(cur.fetchall())
 	ret = []
 	for item in foo:
