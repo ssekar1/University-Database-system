@@ -143,9 +143,9 @@ def select():
 	string = string[:-4]
 
 	return_string = 'no_call'
+	return_list=[]
 	try:
 		data = app_lib.select(string, u_type)
-		return_list = []
 		for item in data:
 			return_string = ''
 			for entry in item:
