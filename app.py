@@ -53,18 +53,25 @@ def update():
 	pk = str(temp)
 
 	string = ""
+	#updates field
 	for i in range(0, len(form_fields[u_type])):
 		temp = request.forms.get(form_fields[u_type][i])
+		#for checking if next field exists
+		if(i<len(form_fields[u_type])-1):
+			temp2 = request.forms.get(form_fields[u_type][i+1])
+		else:
+			temp2=""
 		if temp != '':
 			string += columns[u_type][i] + ' = '
 			t = str(temp)
 		
 			if type(temp) == str:
 				t = "'" + temp + "'"
-			if i<len(form_fields[u_type])-1:
+			if (temp2!="" and i<len(form_fields[u_type])-1):
 				string += t + " and "
 			else:
 				string += t
+		print(string)
 	
 	return_string = 'success'
 	try:
