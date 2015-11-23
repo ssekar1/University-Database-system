@@ -136,6 +136,10 @@ def select():
 	string = ''
 	for i in range(0, len(fields)):
 		temp = request.forms.get(fields[i])
+
+		if temp == None:
+			temp = ''
+			
 		if temp != '':
 			if check_type(temp) == False:
 				string += cols[i] + " = '" + temp + "'and "
