@@ -114,7 +114,6 @@ def delete():
 			temp += "'" + request.forms.get(pk_var1[u_type][i]) + "', "
 		else:
 			temp += request.forms.get(pk_var1[u_type][i]) + ", "
-		
 	
 	temp = temp[:-2]
 	return_string = 'none'
