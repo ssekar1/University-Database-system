@@ -1,4 +1,0 @@
-drop table course;
-drop table instructor;
-drop table textbook;
-drop table has;

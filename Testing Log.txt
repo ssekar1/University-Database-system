@@ -1,9 +1,0 @@
-Testing Log:
-
-11/22/15
-	11:49 - Observed issue with SELECT * on Teaches table, corrected with if-statement to check type of 'temp'
-
-11/23/15
-	12:10 - When loading a good CSV and a bad CSV, the good CSV is accepted instead of being rejected along with the bad CSV.
-			Attempted to fix issue by modifying bulk_load method on app_lib.py, but was unable to limit data commit until after
-			CSV verification
