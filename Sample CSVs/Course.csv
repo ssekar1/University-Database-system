@@ -1,7 +1,7 @@
 course_id,course_name,credit_hours,primary_book
-0,English 100,4,American Literature
-1,History 100,3,History of the Americas
-2,Biology 100,4,Fundamentals of Biology
-3,French 101,3,French for Dummies
-4,Calculus 101,3,Single Variable Calculus
-5,Archaeology 201,3,Artifacts of Ancient Rome
+0,Chemistry 100,4,0
+1,Economics 100,3,1
+2,History 100,4,2
+3,History 101,3,3
+4,German 101,3,4
+5,Political Science 201,3,5
