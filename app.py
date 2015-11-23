@@ -61,7 +61,10 @@ def update():
 		
 			if type(temp) == str:
 				t = "'" + temp + "'"
-			string += t + " "
+			if i<len(form_fields[u_type])-1:
+				string += t + " and "
+			else:
+				string += t
 	
 	return_string = 'success'
 	try:
