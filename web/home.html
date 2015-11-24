@@ -93,6 +93,7 @@ Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
 Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
 	&nbsp; &nbsp; Course ID: <input type="text" name="c_id"><input type="hidden" name="type" value="teaches">
 	&nbsp; &nbsp; <input type="submit">
+</form>
 <br>
 <form action="http://localhost:8080/insert" method="post">
 Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
@@ -190,15 +191,17 @@ Course: &nbsp; &nbsp; ID: <input type="text" name="c_id">
 
 
 <form action="http://localhost:8080/delete" method="post">
-Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
-	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
-	&nbsp; &nbsp; <input type="submit"><input type="hidden" name="type" value="teaches">
-<br>
-<form action="http://localhost:8080/delete" method="post">
 Additional Textbooks: &nbsp; &nbsp; &nbsp; &nbsp; Course ID: <input type="text" name="a_id">
 	&nbsp; &nbsp; ISBN: <input type="text" name="a_isbn">
 	&nbsp; &nbsp; <input type="submit"><input type="hidden" name="type" value="additional">
 </form>
+
+<form action="http://localhost:8080/delete" method="post">
+Teaches: &nbsp; &nbsp; &nbsp; &nbsp; Instructor ID: <input type="text" name="i_id">
+	&nbsp; &nbsp; Course ID: <input type="text" name="c_id">
+	&nbsp; &nbsp; <input type="submit"><input type="hidden" name="type" value="teaches">
+</form>
+
 
 <ul><h3> Delete All Tables</h3></ul>
 <form action="http://localhost:8080/delete_table" method="post">

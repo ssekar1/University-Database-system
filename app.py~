@@ -93,6 +93,7 @@ def insert():
 	return template('./web/csv_result.html', data=[return_string])
 
 @post("/delete_table")
+def del_all():
 	return_string = "success"
 	try:
 		app_lib.delete_table()
@@ -108,22 +109,31 @@ def delete():
 	
 	primary_keys1 = {'course' : ['course_id'],'instructor' : ['instructor_id'], 'textbook' : ['isbn'], 'teaches' : ['course_id', 'instructor_id'] , 'additional' : ['course_id', 'isbn']}
 	
+	fields = []
 	command = ""	
 	if u_type != "additional" and u_type != "teaches":
 		command = "delete from " + u_type + " where " + \
 		primary_keys1[u_type][0] + " = " + request.forms.get(pk_var1[u_type][0]) + ";"
+		fields.append(request.forms.get(pk_var1[u_type][0]))
 	else:
-		command = "delete from " + u_type + " where (" + \
-		request.forms.get(pk_var1[u_type][0]) + ", " + \
-		request.forms.get(pk_var1[u_type][1]) + ") in (" + \
-		primary_keys1[u_type][0] + ", " + primary_keys1[u_type][1] \
-		+ ");" 
-	print command
+		print u_type
+		print pk_var1[u_type][0]
+		print pk_var1[u_type]
+		command = "delete from " + u_type + " where " + \
+		primary_keys1[u_type][0] + " = " + \
+		 request.forms.get(pk_var1[u_type][0]) +
+		" and " + primary_keys1[u_type][1] + " = " + \
+		request.forms.get(pk_var1[u_type][1]) + ";" 
+		fields.append(request.forms.get(pk_var1[u_type][0]))
+		fields.append(request.forms.get(pk_var1[u_type][1]))
 	return_string = 'success'
+	print command
 	try:
 		app_lib.delete_t(command)
+		app_lib.constraint(u_type, fields) 
 	except Exception as e:
 		return_string = e
+
 	return template('./web/csv_result.html', data=[return_string])
 
 @post('/select')
