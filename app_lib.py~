@@ -16,6 +16,7 @@ def delete_table(table):
 	cur.execute("delete from " + table  + " where 1=1;")
 
 def delete_t(command):
+	print command
 	cur.execute(command)
 	
 #you had better check that the list, values, has the same number of columns as table does
