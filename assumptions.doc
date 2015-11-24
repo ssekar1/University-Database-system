@@ -1,0 +1,6 @@
+Assumptions:
+
+	-I assume that multiple courses may have the same primary textbook.
+	-I assume that the main textbook for a course should be an attribute of
+the course entity, and the there should be an additional relation for other
+textbooks associated with a course.
