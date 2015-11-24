@@ -15,8 +15,8 @@ def test_constraint():
 def delete_table(table):
 	cur.execute("delete from " + table  + " where 1=1;")
 
-def delete_t(temp, u_type):
-	cur.execute("delete from " + u_type + " where " + temp + ";")
+def delete_t(command):
+	cur.execute(command)
 	
 #you had better check that the list, values, has the same number of columns as table does
 def insert(values, table):
@@ -40,7 +40,16 @@ def bulk_load(table, csv_file):
 
 #selects tuples matching constraint, returns a list
 def select(string, table):
-	cur.execute("select * from  " + table + " where " + string + ";")
+	temp=string
+	stringList=temp.split("and")
+	string=""
+	for i in stringList:
+		if "*" not in i:
+			string+=i
+	if(string!=""):
+		cur.execute("select * from  " + table + " where " + string + ";")
+	else:
+		cur.execute("select * from "+table+";")
 	foo = list(cur.fetchall())
 	ret = []
 	for item in foo:

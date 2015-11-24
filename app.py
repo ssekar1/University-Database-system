@@ -54,14 +54,21 @@ def update():
 	string = ""
 	for i in range(0, len(form_fields[u_type])):
 		temp = request.forms.get(form_fields[u_type][i])
+		temp2=""
+		if(i<(len(form_fields[u_type])-1)):
+			temp2=request.forms.get(form_fields[u_type][i+1])
+		else:
+			temp2=""
 		if temp != '':
 			string += columns[u_type][i] + ' = '
 			t = str(temp)
 		
 			if type(temp) == str:
 				t = "'" + temp + "'"
-			string += t + " "
-	
+			if (temp2!="" and i<len(form_fields[u_type])-1):
+				string += t + " and "
+			else:
+				string += t
 	return_string = 'success'
 	try:
 		app_lib.update(u_type, string , primary_keys[u_type], pk)
@@ -106,10 +113,11 @@ def delete():
 		if type(i) == str:
 			temp += "'" + request.forms.get(pk_var1[u_type][i]) + "', "
 		else:
-			temp += request.forms.get(pk_var1[u_type][i]) + ", "
+			if i == (len(pk_var1[u_type])-1):
+				temp += request.forms.get(pk_var1[u_type][i])
+			else:
+				temp += request.forms.get(pk_var1[u_type][i]) + " and "
 		
-	
-	temp = temp[:-2]
 	return_string = 'success'
 	try:
 		app_lib.delete_t(temp, u_type)
@@ -138,9 +146,10 @@ def select():
 	string = string[:-4]
 
 	return_string = 'no_call'
+	return_list=[]
 	try:
 		data = app_lib.select(string, u_type)
-		return_list = []
+		#return_list = []
 		for item in data:
 			return_string = ''
 			for entry in item:
