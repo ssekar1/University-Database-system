@@ -1,35 +1,16 @@
-heres what some of the files do:
-sqlite3 project.db < drop_script deletes the tables
-sqlie3 project.db < make_tables makes the tables
-sqlite3 project.db < drop_tables > drop_script makes drop_script
+Dear User,
 
-for loading csv files, separate the items by commas. do not use spaces between comma separated items
-no newline at end of csv file
+app.py is an application program to interact with a sqlite database. To use the application program, run 
+./app.py and then, in your browser (preferably using chrome), go to http://localhost:8080
 
-functions in app_lib.py:
+The database, proj.db, should be in the same directory as app.py. the folder, web, should also be in the same directory as proj.db. 
 
-#returns list of primary keys for table
-def get_pk(table):
+for mass loading of CSV files: I have assumed that the CSV files will have the column names as the first line of the file. Therefore, the first line of each csv file will be ignored.
 
-#returns 1 for good, 0 for bad
-#it is bad if there is a course id in course which is not in teaches
-def check_teaches():
 
-#returns 1 for good, 0 for bad
-#it is bad if there is a course id in course which is not in has
-def check_has():
 
-#you had better check that the list, values, has the same number of columns as table does
-def insert(values, table):
+Assumptions:
+I will assume that the 'teaches' and 'additional' relations can not be updated, because they only contain
+primary keys
 
-#values is a list
-#the table had better have a primary key
-#better verify that the values aren't sql injections
-def delete(values, table):
-
-#assumes all parameters are not lists
-def update(table, column, value, zk):
-
-#takes a table and a csv file. puts data in
-def bulk_load(table, csv_file):
-
+i will assume that the primary textbook for a course should be an attribute for a course.
