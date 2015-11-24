@@ -1,1 +1,0 @@
-To load a CSV from this directory into the database, enter 'Sample CSVs\CSVNAME' in the correct "Load CSV Files" prompt.
