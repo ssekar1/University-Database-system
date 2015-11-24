@@ -92,6 +92,15 @@ def insert():
 		return_string = e
 	return template('./web/csv_result.html', data=[return_string])
 
+@post("/delete_table")
+def del_all():
+	return_string = "success"
+	try:
+		app_lib.delete_table()
+	except Exception as e:
+		return_string = e
+	return template('./web/csv_result.html', data=[return_string])
+	
 
 @post('/delete')
 def delete():

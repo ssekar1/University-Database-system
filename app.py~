@@ -92,6 +92,14 @@ def insert():
 		return_string = e
 	return template('./web/csv_result.html', data=[return_string])
 
+@post("/delete_table")
+	return_string = "success"
+	try:
+		app_lib.delete_table()
+	except Exception as e:
+		return_string = e
+	return template('./web/csv_result.html', data=[return_string])
+	
 
 @post('/delete')
 def delete():
@@ -110,7 +118,7 @@ def delete():
 		request.forms.get(pk_var1[u_type][1]) + ") in (" + \
 		primary_keys1[u_type][0] + ", " + primary_keys1[u_type][1] \
 		+ ");" 
-	
+	print command
 	return_string = 'success'
 	try:
 		app_lib.delete_t(command)

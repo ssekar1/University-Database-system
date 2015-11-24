@@ -12,12 +12,14 @@ conn.isolation_level=None #now autocommit. (default)
 def test_constraint():
 	return "success"
 
-def delete_table(table):
-	cur.execute("delete from " + table  + " where 1=1;")
+def delete_table():
+	l = ['instructor', 'course' , 'textbook', 'teaches', 'additional']
+	for i in l:
+		cur.execute("delete from " + i + " where 1=1;")
 
 def delete_t(command):
 	cur.execute(command)
-	
+
 #you had better check that the list, values, has the same number of columns as table does
 def insert(values, table):
 	query = "insert into " + table + " values(?"
