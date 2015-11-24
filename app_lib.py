@@ -20,12 +20,6 @@ def delete_table():
 def delete_t(command):
 	cur.execute(command)
 
-<<<<<<< HEAD
-def delete_t(command):
-	cur.execute(command)
-	
-=======
->>>>>>> origin/master
 #you had better check that the list, values, has the same number of columns as table does
 def insert(values, table):
 	query = "insert into " + table + " values(?"
