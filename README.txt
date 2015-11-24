@@ -1,5 +1,4 @@
 Dear User,
-The ER diagram,  table schemas, and sql scripts to create the tables are located in the proj_analysis.docx.
 
 app.py is an application program to interact with a sqlite database. To use the application program, run 
 ./app.py and then, in your browser (preferably using chrome), go to http://localhost:8080
